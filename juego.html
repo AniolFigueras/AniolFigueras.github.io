@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Juego</title>
+        <link rel="stylesheet" href="css/index.css"/>
+        <script>
+            let cantidadClicks = 0;
+            let clicksNecesarios = Math.floor(Math.random() * 91) + 10;
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("contador").textContent = `Clicks: ${cantidadClicks} / ${clicksNecesarios}`;
+            });
+            function clickBoton() {
+                cantidadClicks++;
+                document.getElementById("contador").textContent = `Clicks: ${cantidadClicks} / ${clicksNecesarios}`;
+    
+                if (cantidadClicks === clicksNecesarios) {
+                    alert("¡Has ganado!");
+                    document.getElementById("boton").disabled = true;
+                }
+            }
+            function formulario(evento) {
+                evento.preventDefault();
+                let nombre = document.getElementById("name").value.trim();
+                let nombrechange = document.getElementById("name");
+                if(nombre.length < 3 || nombre.value === null){
+                    nombrechange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    nombrechange.style.border = "0.1vw solid green";
+                }
+                let fechanacimiento = document.getElementById("date").value;
+                let correo = document.getElementById("mail").value.trim();
+                let correochange = document.getElementById("mail");
+                if(correo === '' || correo.length < 10){
+                    correochange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    correochange.style.border = "0.1vw solid green";
+                }
+                    
+                let telefono = document.getElementById("tel").value.trim();
+                let telefonochange = document.getElementById("tel");
+                if(telefono === ''){
+                    telefonochange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    telefonochange.style.border = "0.1vw solid green";
+                }
+                let colorfav = document.getElementById("color").value;
+                let mensaje = document.getElementById("text").value.trim();
+                let mensajechange = document.getElementById("text");
+                    if(mensaje === ''){
+                        mensajechange.style.border = "0.1vw solid red";
+                        return;
+                    }
+                    else{
+                        mensajechange.style.border = "0.1vw solid green";
+                    }
+                    formularioo.submit();
+            }
+        </script>
+    </head>
+    <body>
+        <main>
+            <section>
+                <article class="top">
+                    <h1>Curriculum Vitae</h1>
+                    <h2>Aniol Figueras Mataró</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Indice</a></li>
+                            <li><a href="cv.html">CV</a></li>
+                            <li><a href="aficiones.html">Aficiones</a></li>
+                            <li><strong><a href="juego.html">Juego</a></strong></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </article>
+            </section>
+            <section>
+                <p id="contador">Clicks: 0 / ?</p>
+                <button id="boton" onclick="clickBoton()">Hacer Click</button>
+                <h2>Formulario</h2>
+                <form id="formularioo" method="post">
+                    <p>Responde al formulario</p>
+                    <p><label for="NOMBRE">Nombre</label>: <input type="text" id="name" name="name" />*</p>
+                    <p><label for="FECHA">Fecha de nacimiento</label>: <input type="date" id="date" name="date" /></p>
+                    <p><label for="EMAIL">E-mail</label>: <input type="email" id="mail" name="mail" minlength="3" maxlength="64" pattern="...+@...+...+"/>*</p>
+                    <p><label for="TELEFONO">Teléfono móvil</label>: <input type="tel" id="tel" name="tel" minlength="9" maxlength="9" placeholder="000000000" />*</p>
+                    <p><label for="COLOR">Color favorito</label>: <input type="color" id="color" name="color" /></p>
+                    <p><label for="EXPLICATE">Mensaje a enviar</label>: <textarea id="text" name="text" ></textarea>*</p>
+                    <p><input type="submit" value="Enviar" onClick="formulario();" /></p>
+                </form>
+            </section>
+            <section>
+                <article class="enconstruccion">
+                    <h2>En construccion</h2>
+                    <img src="imagenes/Constructor.gif"/>
+                    <p>Un super juego proximamente</p>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <section>
+                <p>Redes Sociales</p>
+                <ul>
+                    <li><a href="https://x.com/xinxon014"><img src="imagenes/twitter.jpg"></a> <br> Twitter</li>
+                    <li><a href="https://www.instagram.com/aniol_figueras_"><img src="imagenes/instagram.png"></a> <br> Instagram</li>
+                    <li><a href="https://github.com/AniolFigueras"><img src="imagenes/github.png"></a> <br> GitHub</li>
+                </ul>
+            </section>
+        </footer>
+    </body>
+</html>
