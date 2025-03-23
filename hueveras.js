@@ -15,6 +15,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 let field_center = canvas_w/2 + canvas_w/8;
+let field_right = 700 + 100;
 
 let canvas_bg, eggcups_bg;
 
