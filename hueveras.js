@@ -185,14 +185,12 @@ function crea ()
 				object.disableInteractive();
 				object.destroy();
 				fx.good.play();
-				console.log("Huevera acertada");
 			}
 			else{
 				countdown -= 3;
 				puntuacion -= 1;
 				object.disableInteractive();
 				object.destroy();
-				console.log("Huevera equivocada");
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
@@ -203,16 +201,14 @@ function crea ()
 				countdown += 5;
 				puntuacion += 2;
 				object.disableInteractive();
-				object.removeInteractive();
+				object.destroy();
 				fx.good.play();
-				console.log("Huevera acertada");
 			}
 			else{
 				countdown -= 5;
 				puntuacion -= 2;
 				object.disableInteractive();
-				object.removeInteractive();
-				console.log("Huevera equivocada");
+				object.destroy();
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
@@ -223,16 +219,14 @@ function crea ()
 				countdown += 10;
 				puntuacion += 5;
 				object.disableInteractive();
-				object.removeInteractive();
+				object.destroy();
 				fx.good.play();
-				console.log("Huevera acertada");
 			}
 			else{
 				countdown -= 10;
 				puntuacion -= 5;
 				object.disableInteractive();
-				object.removeInteractive();
-				console.log("Huevera equivocada");
+				object.destroy();
 				fx.bad.play();
 			}
 			countdown_text.text = countdown;
@@ -298,7 +292,6 @@ countdown_interval = setInterval(function(){
 	countdown_text.text = countdown;
 	puntuacion_text.text = puntuacion;
 	if (countdown <= 0){
-		console.log("Game Over");
 		music.background.stop();
 		music.game_over.play();
 		game_over_text.x = canvas_w/2;
@@ -309,7 +302,6 @@ countdown_interval = setInterval(function(){
 		for(let i = 0; i < huevos.length; i++){
 			huevos[i].falling = false;
 			huevos[i].disableInteractive();
-			huevos[i].removeInteractive();
 		}
 	}
 }, 1000);
@@ -318,7 +310,6 @@ function crea_huevo ()
 {
 	huevo_current++;
 	if (huevo_current >= huevos.length){
-		console.log("Estamos sin huevos :'(");
 		game_over_text.x = canvas_w/2;
 		game_over_text.y = canvas_h/2;
 		puntuacion_text.x = canvas_w/2 + 100;
@@ -327,7 +318,6 @@ function crea_huevo ()
 	for(let i = 0; i < huevos.length; i++){
 		huevos[i].falling = false;
 		huevos[i].disableInteractive();
-		huevos[i].removeInteractive();
 	}
 	return;
 }
