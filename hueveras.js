@@ -66,11 +66,11 @@ function precarga ()
 	this.load.image('huevo', 'imgs/huevo.png');
 
 	this.load.audio('background_music', 'audio/background_music.mp3');
-	this.load.audio('game_over_music', 'audio/GameOver.mp3');
+	this.load.audio('gameover_music', 'audio/GameOver.mp3');
 
-	this.load.audio('crack_fx', 'audio/bad.mp3');
-	this.load.audio('mouseclick_fx', 'audio/mouseclick.mp3');
-	this.load.audio('nice_fx', 'audio/correct.mp3');
+	this.load.audio('bad_fx', 'audio/bad.mp3');
+	this.load.audio('mouse_click_fx', 'audio/mouseclick.mp3');
+	this.load.audio('good_fx', 'audio/correct.mp3');
 }
 
 function crea ()
@@ -259,11 +259,11 @@ function crea ()
 
 	music.background.play();
 
-	music.game_over = this.sound.add('game_over_music');
+	music.game_over = this.sound.add('gameover_music');
 
-	fx.mouseclick = this.sound.add('mouseclick_fx');
-	fx.bad = this.sound.add('crack_fx');
-	fx.good = this.sound.add('nice_fx');
+	fx.mouseclick = this.sound.add('mouse_click_fx');
+	fx.bad = this.sound.add('bad_fx');
+	fx.good = this.sound.add('good_fx');
 
 
 }
@@ -319,7 +319,7 @@ countdown_interval = setInterval(function(){
 
 huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
 
-if(countdown > 0){
+
 	function crea_huevo ()
 	{
 		huevo_current++;
@@ -330,20 +330,22 @@ if(countdown > 0){
 			puntuacion_text.x = canvas_w/2 + 100;
 			puntuacion_text.y = canvas_h/2 + 60;
 			clearInterval(countdown_interval);
-			for(let i = 0; i < huevos.length; i++){
-				huevos[i].falling = false;
-				huevos[i].disableInteractive();
-				huevos[i].removeInteractive();
-			}
-			return;
+		for(let i = 0; i < huevos.length; i++){
+			huevos[i].falling = false;
+			huevos[i].disableInteractive();
+			huevos[i].removeInteractive();
 		}
+		return;
+	}
 
-		huevos[huevo_current].falling = true;
-		huevos_interval_time -= 100;
+	huevos[huevo_current].falling = true;
+	huevos_interval_time -= 100;
 		
-		if (huevos_interval_time < 400){
-			huevos_interval_time = 400;
-			huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
-		}
+	if (huevos_interval_time < 400){
+		huevos_interval_time = 400;
+	}
+
+	if(countdown > 0){
+		huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
 	}
 }
