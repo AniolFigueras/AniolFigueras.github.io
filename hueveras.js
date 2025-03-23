@@ -29,7 +29,7 @@ let huevo_shadow;
 
 let sprite_scale = .6;
 
-let countdown = 20;
+let countdown = 30;
 let countdown_text;
 let countdown_interval;
 
@@ -183,7 +183,7 @@ function crea ()
 				countdown += 3;
 				puntuacion += 1;
 				object.disableInteractive();
-				object.removeInteractive();
+				object.destroy();
 				fx.good.play();
 				console.log("Huevera acertada");
 			}
@@ -191,7 +191,7 @@ function crea ()
 				countdown -= 3;
 				puntuacion -= 1;
 				object.disableInteractive();
-				object.removeInteractive();
+				object.destroy();
 				console.log("Huevera equivocada");
 				fx.bad.play();
 			}
