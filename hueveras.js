@@ -15,7 +15,6 @@ let config = {
 let game = new Phaser.Game(config);
 
 let field_center = canvas_w/2 + canvas_w/8;
-let field_right = 700 + 100;
 
 let canvas_bg, eggcups_bg;
 
@@ -247,7 +246,7 @@ function crea ()
 	});
 
 	
-	countdown_text = this.add.text(field_right, 16,
+	countdown_text = this.add.text(field_center, 16,
 		contador, {"fontSize":	48, "fontStyle": "Montserrat"} );
 	game_over_text = this.add.text(10000, 10000,
 		'Game Over', {"fontSize": 48, "fontStyle": "Montserrat"} );
