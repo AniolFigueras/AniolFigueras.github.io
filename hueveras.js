@@ -314,29 +314,23 @@ countdown_interval = setInterval(function(){
 	}
 }, 1000);
 
-
-
-
-huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
-
-
-	function crea_huevo ()
-	{
-		huevo_current++;
-		if (huevo_current >= huevos.length){
-			console.log("Estamos sin huevos :'(");
-			game_over_text.x = canvas_w/2;
-			game_over_text.y = canvas_h/2;
-			puntuacion_text.x = canvas_w/2 + 100;
-			puntuacion_text.y = canvas_h/2 + 60;
-			clearInterval(countdown_interval);
-		for(let i = 0; i < huevos.length; i++){
-			huevos[i].falling = false;
-			huevos[i].disableInteractive();
-			huevos[i].removeInteractive();
-		}
-		return;
+function crea_huevo ()
+{
+	huevo_current++;
+	if (huevo_current >= huevos.length){
+		console.log("Estamos sin huevos :'(");
+		game_over_text.x = canvas_w/2;
+		game_over_text.y = canvas_h/2;
+		puntuacion_text.x = canvas_w/2 + 100;
+		puntuacion_text.y = canvas_h/2 + 60;
+		clearInterval(countdown_interval);
+	for(let i = 0; i < huevos.length; i++){
+		huevos[i].falling = false;
+		huevos[i].disableInteractive();
+		huevos[i].removeInteractive();
 	}
+	return;
+}
 
 	huevos[huevo_current].falling = true;
 	huevos_interval_time -= 100;
@@ -349,3 +343,4 @@ huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
 		huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
 	}
 }
+huevos_interval = setTimeout(crea_huevo, huevos_interval_time);
