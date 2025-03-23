@@ -65,13 +65,12 @@ function precarga ()
 	this.load.image('huevera', 'imgs/huevera.png');
 	this.load.image('huevo', 'imgs/huevo.png');
 
-	this.load.audio('background_music', 'audio/song21.mp3');
-	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
-	this.load.audio('game_over_music', 'audio/piano_loop.mp3');
+	this.load.audio('background_music', 'audio/background_music.mp3');
+	this.load.audio('game_over_music', 'audio/GameOver.mp3');
 
-	this.load.audio('crack_fx', 'audio/poof_2.mp3');
+	this.load.audio('crack_fx', 'audio/bad.mp3');
 	this.load.audio('mouseclick_fx', 'audio/mouseclick.mp3');
-	this.load.audio('nice_fx', 'audio/jingle.mp3');
+	this.load.audio('nice_fx', 'audio/correct.mp3');
 }
 
 function crea ()
