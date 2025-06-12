@@ -3,9 +3,54 @@
     <head>
         <title>Contacto</title>
         <link rel="stylesheet" href="css/index.css"/>
+        <script>
+             function formulario(evento) {
+                evento.preventDefault();
+                let nombre = document.getElementById("name").value.trim();
+                let nombrechange = document.getElementById("name");
+                if(nombre.length < 3 || nombre.value === null){
+                    nombrechange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    nombrechange.style.border = "0.1vw solid green";
+                }
+                let fechanacimiento = document.getElementById("date").value;
+                let correo = document.getElementById("mail").value.trim();
+                let correochange = document.getElementById("mail");
+                if(correo === ' ' || correo.length < 10){
+                    correochange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    correochange.style.border = "0.1vw solid green";
+                }
+                    
+                let telefono = document.getElementById("tel").value.trim();
+                let telefonochange = document.getElementById("tel");
+                if(!/^\d{9}$/.test(telefono)){
+                    telefonochange.style.border = "0.1vw solid red";
+                    return;
+                }
+                else{
+                    telefonochange.style.border = "0.1vw solid green";
+                }
+                let colorfav = document.getElementById("color").value;
+                let mensaje = document.getElementById("text").value.trim();
+                let mensajechange = document.getElementById("text");
+                    if(mensaje.length < 10){
+                        mensajechange.style.border = "0.1vw solid red";
+                        return;
+                    }
+                    else{
+                        mensajechange.style.border = "0.1vw solid green";
+                    }
+                    formularioo.submit();
+            }
+        </script>
     </head>
     <body>
-        <main>
+        <header>
             <section>
                 <article class="top">
                     <h1>Contacto</h1>
@@ -17,10 +62,24 @@
                             <li><a href="aficiones.html">Aficiones</a></li>
                             <li><strong><a href="juego.html">Juego</a></strong></li>
                             <li><a href="contacto.html">Contacto</a></li>
-                            <li><a href="hueveras_carton.html">Juego Hueveras</a></li>
                         </ul>
                     </nav>
                 </article>
+            </section>
+        </header>
+        <main>
+            <section>
+                <h2>Formulario</h2>
+                <form id="formularioo" method="post" onsubmit="formulario(event); return false;">
+                    <p>Responde al formulario</p>
+                    <p><label for="NOMBRE">Nombre</label>: <input type="text" id="name" name="name" />*</p>
+                    <p><label for="FECHA">Fecha de nacimiento</label>: <input type="date" id="date" name="date" /></p>
+                    <p><label for="EMAIL">E-mail</label>: <input type="email" id="mail" name="mail" minlength="3" maxlength="64" pattern="...+@...+...+"/>*</p>
+                    <p><label for="TELEFONO">Teléfono móvil</label>: <input type="tel" id="tel" name="tel" minlength="9" maxlength="9" placeholder="000000000" />*</p>
+                    <p><label for="COLOR">Color favorito</label>: <input type="color" id="color" name="color" /></p>
+                    <p><label for="EXPLICATE">Mensaje a enviar</label>: <textarea id="text" name="text" ></textarea>*</p>
+                    <p><input type="submit" value="Enviar" onClick="formulario(evento);" /></p>
+                </form>
             </section>
             <section>
                 <h2>Formas de contacto</h2>
